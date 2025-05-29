@@ -37,7 +37,7 @@ ASM_OBJS = $(patsubst %.S, build/%.o, $(ASM_SRCS))
 # VPATH = 
 
 # Makefile 타겟 정의
-.PHONY: all clean
+.PHONY: all clean debug
 
 # build
 all: $(a53_qemu)
@@ -45,6 +45,9 @@ all: $(a53_qemu)
 # build 폴더 삭제
 clean:
 	@rm -fr build
+
+debug:
+	qemu-system-aarch64 -machine virt -cpu cortex-a53 -nographic -kernel build/a53_qemu.elf -S -gdb tcp::1234
 
 # object파일 링크
 $(a53_qemu): $(C_OBJS) $(ASM_OBJS)

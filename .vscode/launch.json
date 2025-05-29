@@ -5,7 +5,7 @@
       "name": "QEMU + GDB Debug",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/app.elf",
+      "program": "${workspaceFolder}/build/a53_qemu.elf",
       "miDebuggerPath": "/opt/arm-gnu-toolchain-14.2.rel1-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gdb",  // 또는 gdb-multiarch
       "args": [],
       "stopAtEntry": true,
@@ -15,8 +15,9 @@
       "miDebuggerServerAddress": "localhost:1234",
       "setupCommands": [
         { "description": "Force aarch64", "text": "set architecture aarch64", "ignoreFailures": false },
-        { "description": "Load ELF", "text": "file ${workspaceFolder}/build/app.elf", "ignoreFailures": false }
-    ]
+        { "description": "Load ELF", "text": "file ${workspaceFolder}/build/a53_qemu.elf", "ignoreFailures": false }
+        ]
+      // "preLaunchTask": "build with make"
     }
   ]
 }
