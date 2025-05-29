@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "QEMU + GDB Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/app.elf",
+      "miDebuggerPath": "/opt/arm-gnu-toolchain-14.2.rel1-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gdb",  // 또는 gdb-multiarch
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerServerAddress": "localhost:1234",
+      "setupCommands": [
+        { "description": "Force aarch64", "text": "set architecture aarch64", "ignoreFailures": false },
+        { "description": "Load ELF", "text": "file ${workspaceFolder}/build/app.elf", "ignoreFailures": false }
+    ]
+    }
+  ]
+}

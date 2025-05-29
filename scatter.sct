@@ -1,0 +1,8 @@
+LR_BOOT 0x00000000 0x00100000 {
+  ER_BOOT 0x00000000 0x00100000 {
+    startup.o (RESET, +First)
+    *(+RO)
+    *(+RW)
+    *(+ZI)
+  }
+}
